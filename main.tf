@@ -43,6 +43,12 @@ resource "google_storage_bucket" "static-site" {
   }
 }
 
+resource "google_storage_bucket_object" "static_website" {
+  name   = "index.html"
+  source = "website/index.html"
+  bucket = "thermal-petal-bucket-tf8"
+}
+
 resource "google_storage_bucket_object" "picture" {
   name   = "programowanie"
   source = "website/programowanie.png"
